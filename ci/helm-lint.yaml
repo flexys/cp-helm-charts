@@ -1,0 +1,12 @@
+---
+params:
+  CHART_PATH:
+  CHART:
+
+platform: linux
+
+inputs:
+  - name: cp-helm-charts
+
+run:
+  path: cp-helm-charts/ci/helm-lint.sh

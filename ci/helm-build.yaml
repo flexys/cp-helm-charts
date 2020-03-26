@@ -1,0 +1,16 @@
+---
+params:
+  CHART_PATH:
+  CHART:
+
+platform: linux
+
+inputs:
+  - name: cp-helm-charts
+  - name: helm-repo
+
+outputs:
+  - name: helm-updates
+
+run:
+  path: cp-helm-charts/ci/helm-build.sh
