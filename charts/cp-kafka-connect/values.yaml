@@ -81,6 +81,8 @@ prometheus:
     imagePullPolicy: IfNotPresent
     port: 5556
 
+  serviceMonitor:
+    enabled: true
     ## Resources configuration for the JMX exporter container.
     ## See the `resources` documentation above for details.
     resources: {}
