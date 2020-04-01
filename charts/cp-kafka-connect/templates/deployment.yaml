@@ -59,6 +59,22 @@ spec:
         - name: {{ template "cp-kafka-connect.name" . }}-server
           image: "{{ .Values.image }}:{{ .Values.imageTag }}"
           imagePullPolicy: "{{ .Values.imagePullPolicy }}"
+          readinessProbe:
+            httpGet:
+              port: {{ .Values.servicePort }}
+              path: /
+            periodSeconds: 10
+            initialDelaySeconds: 60
+            failureThreshold: 10
+            timeoutSeconds: 5
+          livenessProbe:
+            httpGet:
+              port: {{ .Values.servicePort }}
+              path: /
+            periodSeconds: 10
+            initialDelaySeconds: 60
+            failureThreshold: 10
+            timeoutSeconds: 5
           ports:
             - name: kafka-connect
               containerPort: {{ .Values.servicePort}}
